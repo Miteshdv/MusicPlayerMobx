@@ -8,7 +8,7 @@
 
 .search input {
   border: none;
-  border-bottom: 2px solid rgb(243, 139, 114);
+  border-bottom: 2px solid rgb(0,139,139);
   outline: none;
   background: rgba(255, 255, 255, 0.8);
   padding: 5px;
@@ -35,8 +35,8 @@
 
 .player .player__backward button, .player .player__forward button{
   background: transparent;
-  border: 1px solid rgb(243, 139, 114);
-  color: rgb(243, 139, 114);
+  border: 1px solid rgb(0,139,139);
+  color: rgb(0,139,139);
   border-radius: 100%;
   outline: none;
 }
@@ -50,16 +50,16 @@
 }
 
 .player .player__main button:hover, .player .player__backward button:hover, .player .player__forward button:hover{
-  color: rgba(243, 139, 114, 0.7);
-  border: 1px solid rgba(243, 139, 114, 0.7);
+  color: rgba(0,139,139, 0.7);
+  border: 1px solid rgba(0,139,139, 0.7);
 }
 
 .player .player__main {
-  border: 1px solid rgb(243, 139, 114);
+  border: 1px solid rgb(0,139,139);
 }
 
 .player .player__main button {
-  color: rgb(243, 139, 114);
+  color: rgb(0,139,139);
   background: transparent;
   border: none;
   outline: none;
@@ -92,7 +92,7 @@
 }
 
 .progress progress[value]::-webkit-progress-value {
-    background-color: rgb(243, 139, 114);
+    background-color: rgb(0,139,139);
     border-radius: 2px;
     background-size: 35px 20px, 100% 100%, 100% 100%;
 }

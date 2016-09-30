@@ -13,7 +13,8 @@ function wrapState(ComposedComponent) {
 
     componentWillMount() {
       this.setState({
-        selectedIndex: this.props.defaultValue
+        selectedIndex: this.props.defaultValue,
+        windowHeight:window.innerHeight - 120
       });
     }
 
@@ -25,7 +26,7 @@ function wrapState(ComposedComponent) {
 
     render() {
       return (
-        <ComposedComponent
+        <ComposedComponent style = {{overflowY:"auto",height:this.state.windowHeight}}
           value={this.state.selectedIndex}
           onChange={this.handleRequestChange}
         >
@@ -45,7 +46,7 @@ class SearchMusicList extends React.Component {
   {
       return (
 
-        <SelectableList defaultValue = {-1}>
+        <SelectableList defaultValue = {-1} >
           {this.props.searchList.map((songItem,index) => (
           <ListItem
             value = {index}

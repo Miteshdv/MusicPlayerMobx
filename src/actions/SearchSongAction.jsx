@@ -4,7 +4,7 @@ import SearchMusicStore from '../stores/SearchMusicStore'
 
 export function searchSong(query)
 {
-  var url = 'https://api.soundcloud.com/tracks?q='+query+'&format=json&client_id=2f98992c40b8edf17423d93bda2e04ab';
+  var url = 'https://api.soundcloud.com/tracks?q='+query+'&format=json&client_id=2f98992c40b8edf17423d93bda2e04ab&limit=100';
   return fetch(url)
     .then(response => response.json())
     .then(data => {

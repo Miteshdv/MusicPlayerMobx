@@ -36,7 +36,7 @@ class SoundPlayerComponent extends React.Component {
       tracks: [],
       playStatus: Sound.status.STOPPED,
       elapsed: '00:00',
-      total: Math.round(nextProps.songDetails.duration/(60*100)),
+      total: this.formatMilliseconds(nextProps.songDetails.duration),
       position: 0,
       playFromPosition: 0,
       autoCompleteValue: ''
@@ -57,15 +57,20 @@ class SoundPlayerComponent extends React.Component {
     return url.replace(/large/, 't500x500');
   }
 
-  togglePlay(){
+  togglePlay(dispatchAction){
+
     // Check current playing state
     if(this.state.playStatus === Sound.status.PLAYING){
       // Pause if playing
       this.setState({playStatus: Sound.status.PAUSED})
     } else {
       // Resume if paused
-      this.setState({playStatus: Sound.status.PLAYING})
+      if(dispatchAction)
+        this.setState({playStatus: Sound.status.PLAYING})
     }
+
+    if(dispatchAction)
+     this.props.playAction(this)
   }
 
   stop(){
@@ -95,14 +100,14 @@ class SoundPlayerComponent extends React.Component {
         // Update track state
         _this.setState({tracks: response.data});
       })
-      .catch(function (err) {
-        console.log(err);
+      .catch(function () {
+        //console.log(err);
       });
   }
 
 
   formatMilliseconds(milliseconds) {
-    var hours = Math.floor(milliseconds / 3600000);
+   // var hours = Math.floor(milliseconds / 3600000);
     milliseconds = milliseconds % 3600000;
     var minutes = Math.floor(milliseconds / 60000);
     milliseconds = milliseconds % 60000;
@@ -145,7 +150,7 @@ class SoundPlayerComponent extends React.Component {
           </Col>
 
           <Col xs={2} md={2}><Player
-            togglePlay={this.togglePlay.bind(this)}
+            togglePlay={this.togglePlay.bind(this,true)}
             stop={this.stop.bind(this)}
             playStatus={this.state.playStatus}
             forward={this.forward.bind(this)}
@@ -154,7 +159,7 @@ class SoundPlayerComponent extends React.Component {
           /></Col>
           <Col xs={4} md={4}><Progress
             elapsed={this.state.elapsed}
-            total={Math.round(this.props.songDetails.duration/(60*1000))+':00'}
+            total={this.formatMilliseconds(this.props.songDetails.duration)}
             position={this.state.position}
             /></Col>
 
@@ -167,7 +172,8 @@ class SoundPlayerComponent extends React.Component {
 }
 
 SoundPlayerComponent.propTypes = {
-  songDetails: React.PropTypes.object
+  songDetails: React.PropTypes.object,
+  playAction:React.PropTypes.func
 }
 
 export default SoundPlayerComponent

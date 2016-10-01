@@ -26,7 +26,7 @@ function wrapState(ComposedComponent) {
 
     render() {
       return (
-        <ComposedComponent style = {{overflowY:"auto",height:this.state.windowHeight}}
+        <ComposedComponent style = {{overflowY:'auto',height:this.state.windowHeight}}
           value={this.state.selectedIndex}
           onChange={this.handleRequestChange}
         >
@@ -42,6 +42,19 @@ SelectableList = wrapState(SelectableList)
 @observer
 class SearchMusicList extends React.Component {
 
+  pevComp = null;
+
+  stopPrevPlay(currentComp)
+  {
+    if(this.prevComp)
+    {
+      this.prevComp.togglePlay(false)
+
+    }
+
+    this.prevComp = currentComp
+  }
+
   render()
   {
       return (
@@ -53,7 +66,7 @@ class SearchMusicList extends React.Component {
             key={songItem.id}
             style  = {{WebkitAppearance:'none'}}
           >
-            <SoundPlayerComponent songDetails = {songItem}/>
+            <SoundPlayerComponent songDetails = {songItem} playAction = {this.stopPrevPlay.bind(this)}/>
           </ListItem>
           ))}
         </SelectableList>

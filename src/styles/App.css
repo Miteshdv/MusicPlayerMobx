@@ -2,6 +2,7 @@
 body {
   color: #fff;
   background: #222;
+  overflow-y:hidden;
 }
 
 .index img {

@@ -12,7 +12,7 @@ export function searchSong(query)
     });
 }
 
-export function clearSongList(query)
+export function clearSongList()
 {
 
       SearchMusicStore.clearSearchedSongs();

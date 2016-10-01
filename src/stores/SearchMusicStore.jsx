@@ -7,13 +7,12 @@ class SearchMusicStore {
 
 
   @action loadSearchedSongs = (searchData) => {
-    this.searchedSongs = searchData;
+    this.searchedSongs.replace(searchData);
   }
 
   @action clearSearchedSongs = () => {
     this.searchedSongs = [];
   }
-
 }
 
 

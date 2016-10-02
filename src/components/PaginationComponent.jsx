@@ -105,7 +105,7 @@ class PaginationComponent extends React.Component
       var linksToCreate = this.state.numberofMaxLinks[this.state.currentMaxLinkIndex];
       for(var l = 0;l<linksToCreate.length;l++)
       {
-        var link = <span className = 'linkStyle' style={{margin:'1px',padding:'1px' ,color:this.state.currentLastPage==linksToCreate[l]?'blue':'#00CCCC',fontWeight:this.state.currentLastPage==linksToCreate[l]?'bold':''}} key = {linksToCreate[l]}  onClick={this.setCurrentPage.bind(this)}>{linksToCreate[l]}</span>;
+        var link = <span className = 'linkStyle' style={{margin:'1px',padding:'1px' ,color:this.state.currentLastPage==linksToCreate[l]?'#7FFFD4':'#00CCCC',fontWeight:this.state.currentLastPage==linksToCreate[l]?'bold':''}} key = {linksToCreate[l]}  onClick={this.setCurrentPage.bind(this)}>{linksToCreate[l]}</span>;
         links.push(link)
       }
     }

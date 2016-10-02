@@ -12,10 +12,17 @@ function wrapState(ComposedComponent) {
     };
 
     componentWillMount() {
+      window.onresize = this.resizeView.bind(this)
       this.setState({
         selectedIndex: this.props.defaultValue,
-        windowHeight:window.innerHeight - 120
+        windowHeight:window.innerHeight - 150
       });
+    }
+
+    resizeView()
+    {
+
+      this.setState({windowHeight:window.innerHeight-150})
     }
 
     handleRequestChange = (event, index) => {
@@ -77,7 +84,7 @@ class SearchMusicList extends React.Component {
 }
 
 SearchMusicList.propTypes = {
-  searchList: React.PropTypes.object
+  searchList: React.PropTypes.array
 }
 
 

@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField';
 import SearchMusicList from './SearchMusicList.jsx';
 import PaginationComponent from './PaginationComponent.jsx';
 import { observer, inject } from 'mobx-react';
-import  * as searchSongAction from '../actions/SearchSongAction';
+import  * as searchSongAction from '../actions/SearchSongAction.jsx';
 
 
 @inject ('SearchMusicStore') @observer

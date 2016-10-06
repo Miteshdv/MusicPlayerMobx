@@ -78,6 +78,15 @@ class SoundPlayerComponent extends React.Component {
     this.setState({playStatus: Sound.status.STOPPED});
   }
 
+  seekPostion(fromPostion,toPosition)
+  { 
+    console.log('To position '+toPosition)
+    var totalDuration = this.props.songDetails.duration
+    var seekToDuration = totalDuration*toPosition
+    console.log('seek to ' +seekToDuration + ' '+this.formatMilliseconds(seekToDuration))
+    this.setState({playFromPosition: seekToDuration});
+  }
+
   forward(){
     this.setState({playFromPosition: this.state.playFromPosition+=1000*10});
   }
@@ -161,6 +170,7 @@ class SoundPlayerComponent extends React.Component {
             elapsed={this.state.elapsed}
             total={this.formatMilliseconds(this.props.songDetails.duration)}
             position={this.state.position}
+            seekTo = {this.seekPostion.bind(this)}
             /></Col>
 
 

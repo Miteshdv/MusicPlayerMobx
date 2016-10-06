@@ -1,5 +1,5 @@
 import  'whatwg-fetch';
-import SearchMusicStore from '../stores/SearchMusicStore'
+import SearchMusicStore from '../stores/SearchMusicStore.jsx'
 
 
 export function searchSong(query)

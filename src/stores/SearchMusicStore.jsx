@@ -5,7 +5,7 @@ class SearchMusicStore {
   @observable searchedSongs = [];
   @observable totalPagedSongs  = 0;
   @observable currentPage = 1;
-  totalPages = 10;
+  totalPages = 11;
 
   @action loadSearchedSongs = (searchData) => {
     this.searchedSongs.replace(searchData);

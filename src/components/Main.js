@@ -1,6 +1,6 @@
 require('normalize.css/normalize.css');
-require('styles/App.css');
-require('styles/MusicPlayer.css');
+require('../styles/App.css');
+require('../styles/MusicPlayer.css');
 
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
